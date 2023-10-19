@@ -47,16 +47,16 @@ public class UserController {
 
     //PROBAR
 
-    @GetMapping("/list")
-    public String listUser(Model model) {
-        try {
-            model.addAttribute("user", new Users());
-            model.addAttribute("listaUsuarios", uS.list());
-        } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-        }
-        return "usersecurity/listUser";
-    }
+//    @GetMapping("/list")
+//    public String listUser(Model model) {
+//        try {
+//            model.addAttribute("user", new Users());
+//            model.addAttribute("listaUsuarios", uS.list());
+//        } catch (Exception e) {
+//            model.addAttribute("error", e.getMessage());
+//        }
+//        return "usersecurity/listUser";
+//    }
 
 
 

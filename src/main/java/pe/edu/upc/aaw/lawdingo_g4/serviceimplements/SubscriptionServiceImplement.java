@@ -26,8 +26,8 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     }
 
     @Override
-    public List<Subscription> list(String name) {
-        return uS.findByName(name);
+    public List<Subscription> list() {
+        return uS.findAll();
     }
 
     @Override

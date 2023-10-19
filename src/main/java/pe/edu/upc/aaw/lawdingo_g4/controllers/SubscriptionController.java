@@ -12,6 +12,7 @@ import pe.edu.upc.aaw.lawdingo_g4.serviceinterfaces.ISubscriptionService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/subscription")
@@ -28,11 +29,14 @@ public class SubscriptionController {
         uS.create(c);
     }
 
-    @GetMapping("/name")
-    public List<Subscription> list(@PathVariable String name) {
-        return uS.list(name);
-    }
+    @GetMapping
+    public List<SubscriptionDTO> list() {
+        return uS.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, SubscriptionDTO.class);
 
+        }).collect(Collectors.toList());
+    }
 
 
 
