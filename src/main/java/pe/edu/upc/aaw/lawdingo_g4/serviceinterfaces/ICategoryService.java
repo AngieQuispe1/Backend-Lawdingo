@@ -9,5 +9,6 @@ public interface ICategoryService {
     List<Category>list();
     public List<String[]> querieCategory();
 
+    public Category ListId(int id);
 
 }

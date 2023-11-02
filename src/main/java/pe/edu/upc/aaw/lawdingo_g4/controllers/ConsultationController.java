@@ -54,4 +54,11 @@ public class ConsultationController {
         return cS.contarConsultas();
     }
 
+    @GetMapping("/{id}")
+    public ConsultationDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ConsultationDTO dto = m.map(cS.ListId(id), ConsultationDTO.class);
+        return dto;
+    }
+
 }

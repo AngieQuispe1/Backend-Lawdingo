@@ -52,4 +52,11 @@ public class CommentController {
         }
         return listaDTO;
     }
+
+    @GetMapping("/{id}")
+    public CommentDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        CommentDTO dto = m.map(cS.ListId(id), CommentDTO.class);
+        return dto;
+    }
 }

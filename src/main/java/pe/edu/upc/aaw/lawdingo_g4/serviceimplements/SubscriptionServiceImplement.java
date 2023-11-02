@@ -34,5 +34,9 @@ public class SubscriptionServiceImplement implements ISubscriptionService {
     public List<String[]> querieSubscription() {
         return uS.quantitySubscriptionByUsers();
     }
+    @Override
+    public Subscription ListId(int idAuthor) {
+        return uS.findById(idAuthor).orElse(new Subscription());
+    }
 
 }

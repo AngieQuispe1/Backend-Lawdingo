@@ -55,4 +55,11 @@ public class ProceedingController {
         }
         return listaDTO;
     }
+
+    @GetMapping("/{id}")
+    public ProceedingDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ProceedingDTO dto = m.map(pS.ListId(id), ProceedingDTO.class);
+        return dto;
+    }
 }

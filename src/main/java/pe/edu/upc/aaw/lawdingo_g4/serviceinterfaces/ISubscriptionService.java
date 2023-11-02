@@ -11,5 +11,8 @@ public interface ISubscriptionService {
 
     public List<String[]> querieSubscription();
 
+    public Subscription ListId(int id);
+
+
 
 }
