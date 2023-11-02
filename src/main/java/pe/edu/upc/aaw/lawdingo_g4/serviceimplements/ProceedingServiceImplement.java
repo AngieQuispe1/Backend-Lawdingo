@@ -33,5 +33,9 @@ public class ProceedingServiceImplement implements IProceedingService {
     public List<String[]> proceedingSummary() {
         return pR.proceedingSummary();
     }
+    @Override
+    public Proceeding ListId(int idAuthor) {
+        return pR.findById(idAuthor).orElse(new Proceeding());
+    }
 
 }

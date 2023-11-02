@@ -12,5 +12,7 @@ public interface IUserService {
     public List <Users> getUsersWhoseNameStartsWith(String startsWith);
     public List <Users> list(String name);
     public void  delete (int idUser);
+    public Users ListId(int id);
+
 
 }

@@ -12,4 +12,6 @@ public interface IConsultationService {
     public void delete(int idConsultation);
     List<Consultation>buscarFecha(LocalDate fecha);
     Long contarConsultas();
+    public Consultation ListId(int id);
+
 }

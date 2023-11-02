@@ -35,4 +35,8 @@ public class ConsultationServiceImplement implements IConsultationService {
     public Long contarConsultas() {
         return cR.cantidad();
     }
+    @Override
+    public Consultation ListId(int idAuthor) {
+        return cR.findById(idAuthor).orElse(new Consultation());
+    }
 }

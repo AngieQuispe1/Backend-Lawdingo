@@ -9,4 +9,6 @@ public interface ICommentService {
     public List<Comment> list();
     public void delete(int idCourt);
     public List<String[]> listCommentByLawyer(int idLaw);
+    public Comment ListId(int id);
+
 }

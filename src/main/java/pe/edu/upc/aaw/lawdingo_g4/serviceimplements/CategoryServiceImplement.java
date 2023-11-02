@@ -26,4 +26,9 @@ public class CategoryServiceImplement implements ICategoryService {
         return tR.quantityConsultationByCategory();
     }
 
+    @Override
+    public Category ListId(int idAuthor) {
+        return tR.findById(idAuthor).orElse(new Category());
+    }
+
 }

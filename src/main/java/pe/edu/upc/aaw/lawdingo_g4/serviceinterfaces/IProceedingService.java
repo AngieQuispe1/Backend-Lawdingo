@@ -10,4 +10,5 @@ public interface IProceedingService {
     public List<Proceeding> list();
     public void delete(int idProceeding);
     public List<String[]> proceedingSummary();
+    public Proceeding ListId(int id);
 }

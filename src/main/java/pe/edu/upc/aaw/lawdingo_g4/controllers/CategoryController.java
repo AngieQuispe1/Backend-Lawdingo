@@ -53,4 +53,11 @@ public class CategoryController {
         }
         return listDTO;
     }
+
+    @GetMapping("/{id}")
+    public CategoryDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        CategoryDTO dto = m.map(aS.ListId(id), CategoryDTO.class);
+        return dto;
+    }
 }

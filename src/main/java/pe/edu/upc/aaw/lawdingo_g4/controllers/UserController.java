@@ -7,10 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import pe.edu.upc.aaw.lawdingo_g4.dtos.CategoryDTO;
-import pe.edu.upc.aaw.lawdingo_g4.dtos.CourtDTO;
 import pe.edu.upc.aaw.lawdingo_g4.dtos.UserDTO;
-import pe.edu.upc.aaw.lawdingo_g4.entities.Category;
 import pe.edu.upc.aaw.lawdingo_g4.entities.Users;
 import pe.edu.upc.aaw.lawdingo_g4.serviceinterfaces.IUserService;
 
@@ -26,8 +23,7 @@ public class UserController {
 //    private PasswordEncoder bcrypt;
     @Autowired
     private IUserService uS;
-
-
+    
     @PostMapping("/save")
     public String saveUser(@Valid Users user, BindingResult result, Model model, SessionStatus status, @RequestBody UserDTO dto)
             throws Exception {
@@ -45,27 +41,11 @@ public class UserController {
 
     }
 
-    //PROBAR
-
-//    @GetMapping("/list")
-//    public String listUser(Model model) {
-//        try {
-//            model.addAttribute("user", new Users());
-//            model.addAttribute("listaUsuarios", uS.list());
-//        } catch (Exception e) {
-//            model.addAttribute("error", e.getMessage());
-//        }
-//        return "usersecurity/listUser";
-//    }
-
-
 
     @GetMapping("/startsWith/{letter}")
     public List<Users> getUsersWhoseNameStartsWith(@PathVariable String letter) {
         return uS.getUsersWhoseNameStartsWith(letter);
     }
-
-
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") int id){
@@ -84,6 +64,12 @@ public class UserController {
         ModelMapper m=new ModelMapper();
         Users u=m.map(dto,Users.class);
         uS.insert(u);
+    }
+    @GetMapping("/{id}")
+    public UserDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        UserDTO dto = m.map(uS.ListId(id), UserDTO.class);
+        return dto;
     }
 }
 

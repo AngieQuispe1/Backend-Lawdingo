@@ -39,7 +39,6 @@ public class SubscriptionController {
     }
 
 
-
     @GetMapping("/cantidausuarioporsuscripcion")
     public List<UsersBySubscriptionDTO>cantidausuarioporsuscripcion (){
         List<String[]> lista = uS.querieSubscription();
@@ -64,6 +63,12 @@ public class SubscriptionController {
         ModelMapper m=new ModelMapper();
         Subscription u=m.map(dto,Subscription.class);
         uS.create(u);
+    }
+    @GetMapping("/{id}")
+    public SubscriptionDTO ListId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        SubscriptionDTO dto = m.map(uS.ListId(id), SubscriptionDTO.class);
+        return dto;
     }
 
 
