@@ -40,6 +40,12 @@ public class CategoryController {
 
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id){
+        aS.delete(id);
+    }
+
     @GetMapping("/cantidadconsultasporcategoria")
     public List<ConsultationByCategoryDTO> cantidadconsultasporcategoria(){
         List<String[]> lista = aS.querieCategory();

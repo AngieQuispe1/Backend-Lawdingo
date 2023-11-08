@@ -10,5 +10,6 @@ public interface ICategoryService {
     public List<String[]> querieCategory();
 
     public Category ListId(int id);
+    public void delete(int idCategory);
 
 }

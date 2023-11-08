@@ -9,5 +9,6 @@ public interface IRoleService {
 
     List<Role> list();
     public Role listId(int id);
+    public void delete(int id);
 
 }

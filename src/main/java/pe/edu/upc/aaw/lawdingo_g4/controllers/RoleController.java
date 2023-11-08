@@ -45,6 +45,11 @@ public class RoleController {
         rService.insert(e);
     }
 
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        rService.delete(id);
+    }
+
 
 
 }

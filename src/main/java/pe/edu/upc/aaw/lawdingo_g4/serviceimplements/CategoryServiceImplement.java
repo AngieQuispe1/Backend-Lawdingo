@@ -30,5 +30,9 @@ public class CategoryServiceImplement implements ICategoryService {
     public Category ListId(int idAuthor) {
         return tR.findById(idAuthor).orElse(new Category());
     }
+    @Override
+    public void delete(int idCategory) {
+        tR.deleteById(idCategory);
+    }
 
 }
