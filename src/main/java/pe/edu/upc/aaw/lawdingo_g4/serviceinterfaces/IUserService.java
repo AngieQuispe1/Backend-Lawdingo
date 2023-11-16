@@ -14,5 +14,8 @@ public interface IUserService {
     public void  delete (int idUser);
     public Users ListId(int id);
 
+    //agregado
+    public Users listUsername(String name);
+
 
 }

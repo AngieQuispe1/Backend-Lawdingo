@@ -48,5 +48,11 @@ public class UserServiceImplement implements IUserService {
         return uR.findById(idAuthor).orElse(new Users());
     }
 
+    //AGREGADO
+    @Override
+    public Users listUsername(String name) {
+        return uR.findByUsername(name);
+    }
+
 
 }

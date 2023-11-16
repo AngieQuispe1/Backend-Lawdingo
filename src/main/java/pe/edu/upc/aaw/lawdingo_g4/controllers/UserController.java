@@ -3,6 +3,7 @@ package pe.edu.upc.aaw.lawdingo_g4.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 public class UserController {
 
-//    @Autowired
-//    private PasswordEncoder bcrypt;
+    @Autowired
+    private PasswordEncoder bcrypt;
     @Autowired
     private IUserService uS;
     
@@ -33,8 +34,8 @@ public class UserController {
 
             ModelMapper m = new ModelMapper();
             Users u = m.map(dto, Users.class);
-            //String bcryptPassword = bcrypt.encode(u.getPassword());
-            //u.setPassword(bcryptPassword);
+            String bcryptPassword = bcrypt.encode(u.getPassword());
+            u.setPassword(bcryptPassword);
             uS.insert(u);
             return "Usuario creado";
         }
@@ -69,6 +70,12 @@ public class UserController {
     public UserDTO ListId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         UserDTO dto = m.map(uS.ListId(id), UserDTO.class);
+        return dto;
+    }
+    @GetMapping("/username/{username}")
+    public UserDTO ListUsername(@PathVariable("username")String name){
+        ModelMapper m = new ModelMapper();
+        UserDTO dto = m.map(uS.listUsername(name), UserDTO.class);
         return dto;
     }
 }
