@@ -6,6 +6,7 @@ import pe.edu.upc.aaw.lawdingo_g4.entities.Proceeding;
 
 import java.util.List;
 
+//this works
 public interface IProceedingRepository extends JpaRepository<Proceeding, Integer> {
     @Query(value = "select p.id_proceeding, p.name as proceeding, c.name as client, l.name as lawyer, u.name as court, count(d.id_documentation) as numdoc \n" +
             " from proceeding p \n" +
